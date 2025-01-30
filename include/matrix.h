@@ -3,6 +3,8 @@
  using Matrix = std::vector<std::vector<double>>;
 
  Matrix createMatrix(int rows, int cols);
+ Matrix createMatrix(std::vector<std::vector<double>> mtx);
+ 
  Matrix setMat(double val, int row, int col); //set a value at a certain coordinate value
  double getMat(int row, int col); //gets a value at a row/col coordinate
 

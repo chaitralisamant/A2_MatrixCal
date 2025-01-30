@@ -7,7 +7,7 @@ project(A2_MatrixCal)
 
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
-# add_executable(matrix src/main.cpp src/matrix.cpp)
+add_executable(matrix src/main.cpp src/matrix.cpp)
 
 # adding tests
 
@@ -17,4 +17,4 @@ target_include_directories(my_tests PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
 enable_testing()
 
-# add_test(NAME my_tests COMMAND my_tests)
+add_test(NAME my_tests COMMAND my_tests)
