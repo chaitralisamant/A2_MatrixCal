@@ -7,23 +7,13 @@
 //matrix = vector of vectors
 
 Matrix createMatrix(int rows, int cols) {
-    Matrix created;
-    
-    for(int rw = 0; rw < rows; rw++) {
-        for(int cl = 0; cl < cols; cl++) {
-            created[rw][cl] = 0;
-        }
-    }
+    Matrix created(rows, std::vector<double>(cols, 0));
 
     return created; //returns a zero matrix with given dims
 }
 
 Matrix createMatrix(std::vector<std::vector<double>> mtx) {
-
-    Matrix result = mtx;
-
     return mtx; //create a filled matrix object with vector
-
 }
 
 double getMat(const Matrix& m1, int row, int col) {
@@ -42,7 +32,7 @@ Matrix addMatrices(const Matrix& m1, const Matrix& m2) {
 
     Matrix added = createMatrix(rw1, cl1);
     
-    if((rw1 != rw2) && (cl1 != cl2)) {
+    if((rw1 != rw2) || (cl1 != cl2)) {
         throw std::invalid_argument("Matrix dimensions do not match!");
     }
 
@@ -87,7 +77,7 @@ Matrix multiplyMatrices(const Matrix& m1, const Matrix& m2) {
 
     Matrix result = createMatrix(rw1, cl2);
 
-    if((rw1 != cl2) || (cl1 != rw2)) {
+    if(cl1 != rw2) {
         throw std::invalid_argument("Matrix dimensions cannot be multiplied!");
     }
 
